@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './ProductList.css'
 import CartItem from './CartItem';
 import { useSelector, useDispatch } from 'react-redux';
@@ -19,7 +19,6 @@ function ProductList({ onHomeClick }) {
             dispatch(addItem(plant));
         }
     };
-    const [showPlants, setShowPlants] = useState(false); // State to control the visibility of the About Us page
 
     const plantsArray = [
         {
@@ -241,7 +240,10 @@ function ProductList({ onHomeClick }) {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        width: '1100px',
+        gap: '24px',
+        width: 'auto',
+        maxWidth: '100%',
+        flexWrap: 'wrap',
     }
     const styleA = {
         color: 'white',
@@ -260,8 +262,7 @@ function ProductList({ onHomeClick }) {
     };
     const handlePlantsClick = (e) => {
         e.preventDefault();
-        setShowPlants(true); // Set showAboutUs to true when "About Us" link is clicked
-        setShowCart(false); // Hide the cart when navigating to About Us
+        setShowCart(false);
     };
 
     const handleContinueShopping = () => {

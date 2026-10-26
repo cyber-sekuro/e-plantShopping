@@ -46,6 +46,8 @@ const CartItem = ({ onContinueShopping }) => {
         name: item.name,
         quantity: item.quantity - 1
       }));
+    } else {
+      dispatch(removeItem(item.name));
     }
   };
 
@@ -91,7 +93,6 @@ const CartItem = ({ onContinueShopping }) => {
                 <button
                   className="cart-item-button cart-item-button-dec"
                   onClick={() => handleDecrement(item)}
-                  disabled={item.quantity <= 1}
                 >
                   -
                 </button>
